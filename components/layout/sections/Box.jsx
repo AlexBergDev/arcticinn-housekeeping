@@ -1,6 +1,6 @@
 import { Box, useColorModeValue } from "@chakra-ui/react";
 
-export default function renderBox({ children, ...props }) {
+export default function RenderBox({ children, ...props }) {
   return (
     <Box
       backgroundColor={useColorModeValue("white", "brand.980")}
