@@ -1,7 +1,22 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import theme from "@/styles/theme";
+import { ChakraProvider } from "@chakra-ui/react";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import PropTypes from "prop-types";
+
+import { AuthProvider } from "@/context/AuthContext";
+
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <AuthProvider>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </AuthProvider>
+  );
 }
 
-export default MyApp
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object,
+};
